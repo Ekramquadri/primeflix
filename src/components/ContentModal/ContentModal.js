@@ -47,18 +47,23 @@ export default function TransitionsModal({ children, media_type, id }) {
   };
 
   const fetchData = async () => {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
-    );
+    const { data } = await axios.get(`http://localhost:3000/fetchData`, {
+      params: {
+        media_type: media_type,
+        id: id
+      }
+    });
 
     setContent(data);
-    // console.log(data);
   };
 
   const fetchVideo = async () => {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
-    );
+    const { data } = await axios.get(`http://localhost:3000/fetchVideo`, {
+      params: {
+        media_type: media_type,
+        id: id
+      }
+    });
 
     setVideo(data.results[0]?.key);
   };
