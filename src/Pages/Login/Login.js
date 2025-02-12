@@ -32,6 +32,11 @@ export default function LoginPage() {
                     <Typography variant="h5" align="center" gutterBottom>
                         Login
                     </Typography>
+                    {error && (
+                        <Typography variant="body2" color="error" align="center" gutterBottom>
+                            {error}
+                        </Typography>
+                    )}
                     <TextField
                         fullWidth
                         label="Email"
